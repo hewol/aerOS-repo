@@ -2,7 +2,7 @@
 
 . /etc/os-release
 
-if [[ "$PRETTY_NAME" -eq "Arch Linux" ]]; then
+if [[ "$PRETTY_NAME" == "Arch Linux" ]]; then
   rm -rf *.tar.gz
   repo-add --remove packages-aeros.db.tar.gz *.pkg.tar.zst
 else
