@@ -1,4 +1,10 @@
-#!/bin/sh
+#!/bin/bash
 
-[ ! -f "/usr/bin/repo-add" ] && echo "repo-add binary does not exists ... exiting."
-repo-add --remove packages-aeros.db.tar.gz *.pkg.tar.zst
+. /etc/os-release
+
+if [[ "$PRETTY_NAME" -eq "Arch Linux" ]]; then
+  rm -rf *.tar.gz
+  repo-add --remove packages-aeros.db.tar.gz *.pkg.tar.zst
+else
+  echo "This system is not Arch!"
+fi
