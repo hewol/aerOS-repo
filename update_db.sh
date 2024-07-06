@@ -5,6 +5,6 @@ if command -v repo-add; then
     ( cd $arch && rm -rf ./*.tar.gz && repo-add --remove packages-aeros.db.tar.gz ./*.pkg.tar.zst )
   done
 else
-  printf "\e[0;31m==> ERROR:\e[0m\`repo-add\` wasn't found, you might not be running Arch Linux"
+  printf "\e[0;31m==> ERROR:\e[0m\`repo-add\` wasn't found, you might not be running Arch Linux.\n"
   exit 1
 fi
