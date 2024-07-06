@@ -1,11 +1,10 @@
-#!/bin/bash
+#!/bin/sh
 
-cd x86_64
-
-if which repo-add; then
-  rm -rf *.tar.gz
-  repo-add --remove packages-aeros.db.tar.gz *.pkg.tar.zst
+if command -v repo-add; then
+  for arch in any x86_64; do
+    ( cd $arch && rm -rf ./*.tar.gz && repo-add --remove packages-aeros.db.tar.gz ./*.pkg.tar.zst )
+  done
 else
-  echo "This system is not Arch!"
+  printf "\e[0;31m==> ERROR:\e[0m\`repo-add\` wasn't found, you might not be running Arch Linux"
   exit 1
 fi
