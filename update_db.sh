@@ -1,7 +1,7 @@
 #!/bin/sh
 
 if command -v repo-add; then
-  for arch in any x86_64; do
+  for arch in x86_64; do
     ( cd $arch && rm -rf ./*.tar.gz && repo-add --remove packages-aeros.db.tar.gz ./*.pkg.tar.zst )
   done
 else
